@@ -136,3 +136,54 @@ function calculateArea(shape: Geometry): number {
     return -1;
   }
 }
+
+// #4
+function squareNumber(input: number | number[]): number | number[] {
+  if (typeof input === "number") {
+    return input * input;
+  } else if (Array.isArray(input)) {
+    return input.map((num) => num ** 2);
+  } else {
+    return -1;
+  }
+}
+
+// #5
+// Union Types:
+// Union Types cho phép một biến hoặc tham số có thể chứa giá trị của nhiều kiểu khác nhau.
+// Được ký hiệu bằng cách sử dụng dấu | giữa các kiểu.
+// Biến có Union Types có thể chứa giá trị của bất kỳ kiểu nào trong danh sách Union.
+// Sử dụng khi một biến có thể chứa nhiều loại giá trị khác nhau.
+let numberOrString: number | string;
+numberOrString = 10; // Hợp lệ
+numberOrString = "Hello"; // Hợp lệ
+
+// Intersection Types:
+// Intersection Types kết hợp nhiều kiểu thành một kiểu mới, chứa tất cả các thuộc tính của các kiểu kết hợp.
+// Được ký hiệu bằng cách sử dụng dấu & giữa các kiểu.
+// Biến có Intersection Types phải chứa tất cả các thuộc tính của các kiểu kết hợp.
+// Sử dụng khi bạn muốn kết hợp các loại giá trị để tạo ra một kiểu mới.
+interface Circle2 {
+  radius: number;
+}
+interface Color {
+  color: string;
+}
+type ColorCircle = Circle2 & Color;
+const testCircle: ColorCircle = {
+  radius: 5,
+  color: "blue",
+};
+
+// #6
+function logStringOrArray(input: string | string[]): void {
+  if (typeof input === "string") {
+    console.log(input);
+  } else if (Array.isArray(input)) {
+    input.map((a) => console.log(a));
+  } else {
+    return;
+  }
+}
+
+// #7
